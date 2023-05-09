@@ -1,0 +1,18 @@
+  import { ethers } from "ethers";
+
+  const network = {
+      name: "BSC",
+      chainId: 56,
+      ensAddress: "0x0000000092F9d53192ED545D9dF4fDE3C624cBf0"
+  };
+
+  const provider = new ethers.providers.Web3Provider(window.ethereum, network)
+
+  await provider.getBalance("lisa.bnb");
+  // { BigNumber: "26959293642897667667" }
+
+  await provider.resolveName("lisa.bnb");
+  // '0x20d884b4ea39b7A921009Cac517eaF057C797C74'
+
+  await provider.lookupAddress("0x20d884b4ea39b7A921009Cac517eaF057C797C74");
+  // 'lisa.bnb'
